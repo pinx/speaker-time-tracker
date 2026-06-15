@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speaker Time Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Speaker time tracker</h1>
+
+    <div class="setup">
+      <input type="text" id="nameInput" placeholder="Add participant name…" maxlength="30" />
+      <button onclick="addMember()">+ Add</button>
+    </div>
+
+    <div class="mic-bar" id="micBar">
+      <span class="mic-dot" id="micDot"></span>
+      <span id="micLabel">Click "Start listening" to enable voice detection</span>
+      <span class="transcript-preview" id="transcriptPreview"></span>
+    </div>
+
+    <div id="memberList">
+      <p class="empty">Add participants to get started</p>
+    </div>
+
+    <div class="controls" id="controlsRow" style="display:none">
+      <button id="listenBtn" onclick="toggleListen()">🎤 Start listening</button>
+      <button id="pauseBtn" onclick="togglePause()">⏸ Pause</button>
+      <button onclick="resetAll()">↺ Reset</button>
+    </div>
+
+    <p class="footer" id="footerBar"></p>
+  </div>
+
+  <script src="tracker.js"></script>
+</body>
+</html>

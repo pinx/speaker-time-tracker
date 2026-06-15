@@ -1,0 +1,230 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --teal-bg:    #E1F5EE;
+  --teal-text:  #085041;
+  --teal-bar:   #1D9E75;
+  --teal-border:#0F6E56;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: #f5f5f3;
+  color: #1a1a1a;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+/* Setup row */
+.setup {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.setup input {
+  flex: 1;
+  height: 36px;
+  padding: 0 12px;
+  border: 0.5px solid #ccc;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  background: #fff;
+  color: inherit;
+}
+
+.setup input:focus {
+  outline: none;
+  border-color: var(--teal-border);
+  box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.15);
+}
+
+/* Buttons */
+button {
+  height: 36px;
+  padding: 0 14px;
+  border: 0.5px solid #ccc;
+  border-radius: var(--radius-md);
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.12s;
+  color: inherit;
+}
+
+button:hover  { background: #f0f0ee; }
+button:active { transform: scale(0.98); }
+
+/* Mic status bar */
+.mic-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid #ddd;
+  background: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 13px;
+  color: #666;
+}
+
+.mic-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #bbb;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.mic-dot.on  { background: var(--teal-bar); }
+.mic-dot.err { background: #E24B4A; }
+
+.transcript-preview {
+  flex: 1;
+  font-style: italic;
+  color: #aaa;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Member rows */
+.member-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 0.5px solid #ddd;
+  border-radius: var(--radius-lg);
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  user-select: none;
+  margin-bottom: 8px;
+}
+
+.member-row:hover  { border-color: #aaa; }
+.member-row.active { border: 2px solid var(--teal-bar); }
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.minfo { flex: 1; min-width: 0; }
+
+.mname {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.bar-wrap {
+  height: 4px;
+  background: #eee;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.bar {
+  height: 4px;
+  border-radius: 2px;
+  transition: width 0.6s;
+}
+
+.pct {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.tdisp {
+  font-size: 15px;
+  font-weight: 500;
+  min-width: 52px;
+  text-align: right;
+}
+
+.rm {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 20px;
+  padding: 0 0 0 4px;
+  line-height: 1;
+}
+.rm:hover { color: #333; }
+
+/* Badges */
+.badge {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.badge.speaking { background: var(--teal-bg); color: var(--teal-text); }
+.badge.detected { background: #EEEDFE; color: #3C3489; }
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+.controls button { flex: 1; }
+
+/* Misc */
+.empty {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  padding: 2rem 0;
+}
+
+.footer {
+  font-size: 13px;
+  color: #888;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body          { background: #1a1a1a; color: #e8e8e8; }
+  button,
+  .setup input,
+  .mic-bar,
+  .member-row   { background: #252525; border-color: #3a3a3a; color: #e8e8e8; }
+  button:hover  { background: #2f2f2f; }
+  .bar-wrap     { background: #333; }
+  .member-row.active { border-color: var(--teal-bar); }
+}
